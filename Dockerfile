@@ -38,6 +38,7 @@ RUN apk add --no-cache \
     find /usr/lib/ -name '__pycache__' -print0 | xargs -0 -n1 rm -rf && \
     find /usr/lib/ -name '*.pyc' -print0 | xargs -0 -n1 rm -rf
 
+RUN echo '%wheel ALL=(ALL) ALL' > /etc/sudoers.d/wheel
 RUN addgroup --gid 1000 xuser && adduser --home /home/xuser --disabled-password --shell /bin/bash --ingroup xuser --uid 1000 xuser && addgroup xuser wheel && addgroup xuser wireshark 
 RUN echo -n 'xuser:xuser' | chpasswd
 RUN echo 'PasswordAuthentication yes' >> /etc/ssh/sshd_config
