@@ -5,3 +5,6 @@ services:
       - '2222:22'
     restart: unless-stopped
     container_name: netconf-tools
+    #cap_add: #if wanting to use tshark, uncomment
+    #  - NET_ADMIN
+    #  - NET_RAW
