@@ -29,7 +29,7 @@ RUN apk add --no-cache \
     sudo \
     bash \
     nmap \
-    wireshark \
+    tshark \
     net-snmp \
     net-snmp-tools \
     iperf \

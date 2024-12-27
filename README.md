@@ -5,7 +5,7 @@ Alpine based container for network troubleshooting including following tools:
 * netconf-console2
 * snmp
 * iperf
-* wireshark
+* tshark
 * nmap
 * tcpdump
 * traceroute
