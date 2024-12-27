@@ -15,18 +15,19 @@ Accessible via ssh with user:pass `xuser:xuser`
 
 ## Docker
 
-`docker run -d -p 2222:22 ghcr.io/xanld/netconf-tools:0.2`
+`docker run -d -p 2222:22 ghcr.io/xanld/netconf-tools:latst`
 
 
 ## Docker Compose
 
 ```yaml
 services:
-  netconftools:
-    image: 'ghcr.io/xanld/netconf-tools:0.2'
+  netconf-tools:
+    image: 'ghcr.io/xanld/netconf-tools:latest'
     ports:
       - '2222:22'
-    restart: 'unless-stopped'
+    restart: unless-stopped
+    container_name: netconf-tools
 ```
 
 Run with
