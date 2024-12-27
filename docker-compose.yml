@@ -1,0 +1,7 @@
+services:
+  netconf-tools:
+    image: 'ghcr.io/xanld/netconf-tools:latest'
+    ports:
+      - '2222:22'
+    restart: unless-stopped
+    container_name: netconf-tools
