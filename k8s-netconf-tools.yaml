@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    author: 'xanld'
+    source: 'xanld/netconf-tools'
+  labels:
+    netconf.service: netconf-tools
+  name: netconf-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      netconf.service: netconf-tools
+  template:
+    metadata:
+      annotations:
+        author: 'xanld'
+        source: 'xanld/netconf-tools'
+      labels:
+        netconf.service: netconf-tools
+    spec:
+      containers:
+        - image: ghcr.io/xanld/netconf-tools:latest
+          name: netconf-tools
+          ports:
+            - containerPort: 22
+              protocol: TCP
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    author: 'xanld'
+    source: 'xanld/netconf-tools'
+  labels:
+    netconf.service: netconf-tools
+  name: netconf-tools
+spec:
+  type: NodePort
+  ports:
+    - name: "ssh"
+      port: 2222
+      targetPort: 22
+      nodePort: 32222
+  selector:
+    netconf.service: netconf-tools

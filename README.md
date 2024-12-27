@@ -40,4 +40,8 @@ Run with
 
 ## K8s
 
-Coming soon
+Use the provided file `k8s-netconf-tools.yaml` and apply it to your cluster:
+
+`kubectl apply -f k8s-netconf-tools.yaml`
+
+By default it will create a NodePort `32222`. For using with a load balancer, edit the provided file accordingly.
