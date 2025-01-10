@@ -41,7 +41,7 @@ spec:
   type: NodePort
   ports:
     - name: "ssh"
-      port: 2222
+      port: 22
       targetPort: 22
       nodePort: 32222
   selector:

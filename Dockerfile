@@ -33,6 +33,7 @@ RUN apk add --no-cache \
     net-snmp \
     net-snmp-tools \
     iperf \
+    openssl \
     openssh && \
     # cleanup
     find /usr/lib/ -name '__pycache__' -print0 | xargs -0 -n1 rm -rf && \

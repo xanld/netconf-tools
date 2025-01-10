@@ -9,6 +9,7 @@ Alpine based container for network troubleshooting including following tools:
 * nmap
 * tcpdump
 * traceroute
+* openssl
 
 Accessible via ssh with user:pass `xuser:xuser`
 
@@ -45,3 +46,14 @@ Use the provided file `k8s-netconf-tools.yaml` and apply it to your cluster:
 `kubectl apply -f k8s-netconf-tools.yaml`
 
 By default it will create a NodePort `32222`. For using with a load balancer, edit the provided file accordingly.
+
+
+## K8s Debug (ephemeral) container
+
+You can run the container directly (this will not create a service/NodePort) and attach to it directly.
+
+Use the following command to attach to an running pod as an ephemeral container:
+
+`kubectl debug -it --image=ghcr.io/xanld/netconf-tools:latest <POD_NAME> -n <POD_NAMESPACE> -- /bin/sh`
+
+To remove the debug container you can simply kill/restart the pod you attached to.
