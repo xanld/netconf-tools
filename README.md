@@ -50,9 +50,9 @@ By default it will create a NodePort `32222`. For using with a load balancer, ed
 
 ## K8s Debug (ephemeral) container
 
-You can run the container directly (this will not create a service/NodePort) and attach to it directly.
+You can run the container directly (this will not create a service/NodePort) and attach to it.
 
-Use the following command to attach to an running pod as an ephemeral container:
+Use the following command to attach to a running pod as an ephemeral container:
 
 `kubectl debug -it --image=ghcr.io/xanld/netconf-tools:latest <POD_NAME> -n <POD_NAMESPACE> -- /bin/sh`
 
